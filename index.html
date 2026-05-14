@@ -1,305 +1,903 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dépannage Informatique Tours | Tours Informatique</title>
-    <meta name="description" content="Réparation informatique à domicile sur Tours. Intervention rapide à vélo, devis clairs et pédagogie. Boostez votre PC avec notre forfait SSD !">
+    <title>Dépannage PC à domicile Tours | Intervention rapide & éco-responsable</title>
+    <meta name="description" content="Technicien informatique à domicile sur Tours et périphérie. Boost SSD, virus, assistance senior. Intervention 100% zéro carbone à vélo. Devis gratuit.">
     
-    <!-- Tailwind CSS via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        ink: '#1d1d1f',
-                        graphite: '#707070',
-                        slate: '#474747',
-                        ash: '#333333',
-                        fog: '#f5f5f7',
-                        snow: '#ffffff',
-                        obsidian: '#000000',
-                        'silver-mist': '#e8e8ed',
-                        azure: '#0071e3',
-                        cobalt: '#0066cc',
-                        citrus: '#dddc8c',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-                    },
-                    spacing: {
-                        '4': '4px', '8': '8px', '12': '12px', '16': '16px', '20': '20px',
-                        '24': '24px', '28': '28px', '32': '32px', '40': '40px', '44': '44px',
-                        '48': '48px', '52': '52px', '76': '76px', '80': '80px', '120': '120px', '144': '144px',
-                    },
-                    borderRadius: {
-                        'apple-card': '28px',
-                        'apple-pill': '999px',
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --color-ink: #1d1d1f;
-            --color-graphite: #707070;
-            --color-slate: #474747;
-            --color-ash: #333333;
-            --color-fog: #f5f5f7;
-            --color-snow: #ffffff;
-            --color-obsidian: #000000;
-            --color-silver-mist: #e8e8ed;
-            --color-azure: #0071e3;
-            --color-cobalt: #0066cc;
-            --color-citrus-gradient: linear-gradient(184deg, rgb(29, 29, 31) 0%, rgb(223, 231, 79) 33%, rgb(94, 156, 42) 66%, rgb(10, 134, 26) 95%);
-            --color-indigo-gradient: linear-gradient(184deg, rgb(29, 29, 31) 20%, rgb(168, 211, 251) 43%, rgb(0, 18, 249) 76%, rgb(37, 53, 224) 95%);
+            /* Colors from DESIGN.md */
+            --color-pitch-darkness: #100904;
+            --color-cork-dust: #ffedd7;
+            --color-rust-accent: #dc5000;
+            --color-olive-green: #445231;
+            --color-faded-bark: #382416;
+            --color-aged-stone: #887b6d;
+            --color-light-cork: #f6e0c6;
+            --gradient-rainbow-spectrum: linear-gradient(rgb(253, 254, 237), rgb(255, 191, 2) 17%, rgb(233, 80, 14) 32%, rgb(205, 25, 125), rgb(140, 1, 156), rgb(37, 1, 135), rgb(3, 3, 16));
+
+            /* Typography Scale */
+            --font-primary: 'Inter', sans-serif;
+            --font-secondary: 'Merriweather', serif;
+            
+            --text-body: 14px;
+            --text-heading: 23px;
+            --text-heading-lg: 34px;
+            --text-display: 64px;
+
+            /* Spacing & Shapes */
+            --section-gap: 45px;
+            --element-gap: 18px;
+            --radius-cards: 12px;
+            --radius-buttons: 36px;
+            --container-width: 1100px;
+            
+            --transition: all 0.2s ease;
         }
 
-        body { background-color: var(--color-fog); color: var(--color-ink); -webkit-font-smoothing: antialiased; }
-        
-        /* SF Pro Display Substitutes with tracking from DESIGN.md */
-        .text-display { font-size: 96px; font-weight: 700; line-height: 1.04; letter-spacing: -2.11px; }
-        @media (max-width: 768px) { .text-display { font-size: 48px; letter-spacing: -1.05px; } }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        .text-heading-lg { font-size: 56px; font-weight: 700; line-height: 1.07; letter-spacing: -0.9px; }
-        @media (max-width: 768px) { .text-heading-lg { font-size: 32px; letter-spacing: -0.5px; } }
+        html {
+            scroll-behavior: smooth;
+        }
 
-        .text-heading { font-size: 40px; font-weight: 700; line-height: 1.17; letter-spacing: -0.6px; }
-        .text-heading-sm { font-size: 24px; font-weight: 600; line-height: 1.29; letter-spacing: -0.36px; }
-        .text-subheading { font-size: 20px; font-weight: 300; line-height: 1.4; letter-spacing: -0.2px; }
-        .text-body { font-size: 17px; font-weight: 400; line-height: 1.47; letter-spacing: -0.1px; }
-        .text-body-sm { font-size: 14px; font-weight: 400; line-height: 1.43; letter-spacing: -0.04px; }
-        .text-caption { font-size: 12px; font-weight: 600; line-height: 1.33; letter-spacing: -0.26px; }
+        body {
+            font-family: var(--font-primary);
+            line-height: 1.33;
+            color: var(--color-cork-dust);
+            background-color: var(--color-pitch-darkness);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
 
-        /* Components */
-        .glass-nav { background: rgba(245, 245, 247, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
-        
-        .btn-buy {
-            background-color: var(--color-azure);
-            color: var(--color-snow);
-            border-radius: 999px;
-            padding: 8px 16px;
-            font-size: 17px;
-            font-weight: 400;
-            transition: opacity 0.2s ease;
+        h1, h2, h3 {
+            font-family: var(--font-primary);
+            font-weight: 700;
+            letter-spacing: -0.018em;
+            line-height: 1.09;
+        }
+
+        p {
+            font-size: var(--text-body);
+            color: var(--color-aged-stone);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Buttons - Pill Shape */
+        .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-        }
-        .btn-buy:hover { opacity: 0.8; }
-
-        .btn-dark {
-            background-color: var(--color-obsidian);
-            color: var(--color-snow);
-            border-radius: 999px;
-            padding: 8px 16px;
-            font-size: 17px;
-            font-weight: 400;
-            transition: opacity 0.2s ease;
+            padding: 14px 24px;
+            border-radius: var(--radius-buttons);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: var(--text-body);
         }
 
-        .apple-card { background-color: var(--color-snow); border-radius: 28px; padding: 28px; box-shadow: none; border: none; }
-        .apple-card-fog { background-color: var(--color-fog); border-radius: 28px; padding: 28px; box-shadow: none; }
-
-        .sticky-subnav {
-            background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--color-silver-mist);
-            height: 52px;
-            position: sticky;
-            top: 44px;
-            z-index: 40;
+        .btn-primary {
+            background-color: var(--color-rust-accent);
+            color: var(--color-pitch-darkness);
         }
 
-        .subnav-link { font-size: 14px; font-weight: 400; color: var(--color-ink); opacity: 0.8; transition: opacity 0.2s; }
-        .subnav-link:hover { opacity: 1; }
-        .subnav-link.active { opacity: 1; border-bottom: 2px solid var(--color-ink); padding-bottom: 14px; }
+        .btn-primary:hover {
+            filter: brightness(1.1);
+            transform: translateY(-1px);
+        }
 
-        .gradient-citrus { background: var(--color-citrus-gradient); }
-        .gradient-indigo { background: var(--color-indigo-gradient); }
+        .btn-secondary {
+            background-color: var(--color-faded-bark);
+            color: var(--color-cork-dust);
+            padding: 18px 36px;
+        }
+
+        .btn-ghost {
+            background-color: transparent;
+            border: 1px solid var(--color-rust-accent);
+            color: var(--color-cork-dust);
+            padding: 18px 36px;
+        }
+
+        .badge {
+            display: inline-flex;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-rust-accent);
+            margin-bottom: var(--element-gap);
+        }
+
+        section {
+            padding: var(--section-gap) 0;
+        }
+
+        .section-title {
+            margin-bottom: var(--section-gap);
+        }
+
+        .section-title h2 {
+            font-size: var(--text-heading-lg);
+            color: var(--color-cork-dust);
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            font-family: var(--font-secondary);
+            font-weight: 300;
+            font-size: 16px;
+        }
+
+        /* Header & Nav */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(16, 9, 4, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 24px 0;
+            border-bottom: 1px solid var(--color-faded-bark);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--color-cork-dust);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--color-rust-accent);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 34px;
+        }
+
+        nav ul li a {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--color-aged-stone);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        nav ul li a:hover {
+            color: var(--color-cork-dust);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: var(--color-cork-dust);
+        }
+
+        /* Hero Section - Rainbow Gradient */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 120px;
+            background: var(--gradient-rainbow-spectrum);
+            color: var(--color-pitch-darkness);
+            position: relative;
+        }
+
+        /* Overlay to keep text readable while having the rainbow depth */
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, transparent 0%, var(--color-pitch-darkness) 90%);
+            pointer-events: none;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: var(--text-display);
+            letter-spacing: -0.045em;
+            margin-bottom: 24px;
+            color: var(--color-cork-dust);
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 34px;
+            color: var(--color-light-cork);
+            font-family: var(--font-secondary);
+        }
+
+        /* Services Grid - Cork Texture feel */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: var(--element-gap);
+        }
+
+        .service-card {
+            background-color: var(--color-faded-bark);
+            padding: 34px;
+            border-radius: var(--radius-cards);
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .service-card:hover {
+            border-color: var(--color-rust-accent);
+            transform: scale(1.02);
+        }
+
+        .service-icon {
+            font-size: 32px;
+            margin-bottom: 24px;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: var(--text-heading);
+            margin-bottom: 12px;
+            color: var(--color-cork-dust);
+        }
+
+        .service-price {
+            display: block;
+            font-weight: 700;
+            color: var(--color-rust-accent);
+            margin-top: 24px;
+            font-size: 16px;
+        }
+
+        /* Tarifs - Flat and minimal */
+        .tarifs {
+            background-color: var(--color-pitch-darkness);
+        }
+
+        .tarifs-table-container {
+            border: 1px solid var(--color-faded-bark);
+            border-radius: var(--radius-cards);
+            overflow: hidden;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 18px 24px;
+            text-align: left;
+            border-bottom: 1px solid var(--color-faded-bark);
+        }
+
+        th {
+            background-color: var(--color-faded-bark);
+            color: var(--color-light-cork);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        td {
+            color: var(--color-cork-dust);
+            font-size: 15px;
+        }
+
+        .tarifs-info {
+            display: flex;
+            gap: 24px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+
+        .reassurance-badge {
+            font-size: 12px;
+            color: var(--color-aged-stone);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Pourquoi moi ? */
+        .pourquoi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 34px;
+        }
+
+        .argument h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: var(--color-light-cork);
+        }
+
+        /* Zone & Map */
+        .zone-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .map-container {
+            border-radius: var(--radius-cards);
+            overflow: hidden;
+            height: 400px;
+            filter: grayscale(1) invert(0.9) contrast(1.2); /* Dark map look */
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Avis - Immersive dark cards */
+        .avis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--element-gap);
+        }
+
+        .avis-card {
+            background-color: var(--color-pitch-darkness);
+            border: 1px solid var(--color-faded-bark);
+            padding: 34px;
+            border-radius: var(--radius-cards);
+        }
+
+        .stars {
+            color: var(--color-rust-accent);
+            margin-bottom: 18px;
+            font-size: 12px;
+        }
+
+        .avis-card p {
+            font-family: var(--font-secondary);
+            font-style: italic;
+            font-size: 15px;
+            margin-bottom: 24px;
+            color: var(--color-cork-dust);
+        }
+
+        .avis-author {
+            font-weight: 600;
+            font-size: 12px;
+            color: var(--color-aged-stone);
+        }
+
+        /* Contact - Formspree with Sharp Inputs */
+        .contact {
+            background-color: var(--color-pitch-darkness);
+            border-top: 1px solid var(--color-faded-bark);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 86px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 9px;
+            font-size: 12px;
+            color: var(--color-aged-stone);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 18px;
+            background-color: transparent;
+            border: 1px solid var(--color-cork-dust);
+            border-radius: 0; /* Sharp corners from DESIGN.md */
+            color: var(--color-cork-dust);
+            font-family: var(--font-primary);
+            font-size: 14px;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            border-color: var(--color-rust-accent);
+        }
+
+        .contact-info h3 {
+            margin-bottom: 34px;
+        }
+
+        .info-item {
+            margin-bottom: 24px;
+        }
+
+        .info-item strong {
+            display: block;
+            font-size: 10px;
+            text-transform: uppercase;
+            color: var(--color-rust-accent);
+            margin-bottom: 4px;
+        }
+
+        .info-item p {
+            font-size: 18px;
+            color: var(--color-cork-dust);
+        }
+
+        /* Footer */
+        footer {
+            padding: 77px 0 34px;
+            border-top: 1px solid var(--color-faded-bark);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 45px;
+            margin-bottom: 45px;
+        }
+
+        .footer-col h4 {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: var(--color-cork-dust);
+            margin-bottom: 24px;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col a {
+            font-size: 13px;
+            color: var(--color-aged-stone);
+        }
+
+        .footer-col a:hover {
+            color: var(--color-cork-dust);
+        }
+
+        .footer-bottom {
+            font-size: 10px;
+            color: var(--color-aged-stone);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Back to top */
+        #backToTop {
+            position: fixed;
+            bottom: 34px;
+            right: 34px;
+            width: 45px;
+            height: 45px;
+            background-color: var(--color-faded-bark);
+            color: var(--color-cork-dust);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            border: 1px solid var(--color-rust-accent);
+        }
+
+        #backToTop.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Menu */
+        @media (max-width: 768px) {
+            header .container {
+                padding: 0 24px;
+            }
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--color-pitch-darkness);
+                padding: 34px;
+                border-bottom: 1px solid var(--color-faded-bark);
+            }
+            nav.active {
+                display: block;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 24px;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 40px;
+            }
+            .zone-content, .contact-content {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+            .map-container {
+                height: 300px;
+            }
+        }
     </style>
 </head>
-<body class="font-sans overflow-x-hidden">
+<body>
 
-    <!-- Global Navigation -->
-    <header class="fixed w-full z-50 glass-nav h-[44px]">
-        <nav class="max-w-[1200px] mx-auto px-8 h-full flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" class="text-ink"><path d="M20 13h-7v7h-2v-7H4v-2h7V4h2v7h7v2z"/></svg>
-                <span class="font-semibold text-[14px] tracking-tight">Tours Informatique</span>
-            </div>
-            <div class="hidden md:flex space-x-8 text-[12px] font-normal text-ink">
-                <a href="services.html" class="hover:opacity-70 transition">Services</a>
-                <a href="tarifs.html" class="hover:opacity-70 transition">Tarifs</a>
-                <a href="#approche" class="hover:opacity-70 transition">Approche</a>
-                <a href="#contact" class="btn-buy text-[12px] py-1 px-4 h-auto min-h-0">Contact</a>
-            </div>
-        </nav>
+    <header id="header">
+        <div class="container">
+            <a href="#" class="logo">MoonAssistance<span>PC</span></a>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#tarifs">Tarifs</a></li>
+                    <li><a href="#quisuisje">Pourquoi moi</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn" id="mobile-toggle">☰</div>
+        </div>
     </header>
 
-    <!-- Sticky Product Sub-Nav -->
-    <div class="sticky-subnav">
-        <div class="max-w-[1200px] mx-auto px-8 h-full flex justify-between items-center">
-            <div class="text-[17px] font-bold">Dépannage Tours</div>
-            <div class="flex items-center space-x-6">
-                <a href="index.html" class="subnav-link active">Aperçu</a>
-                <a href="services.html" class="subnav-link">Prestations</a>
-                <a href="tarifs.html" class="subnav-link">Spécifications</a>
-                <a href="#contact" class="btn-buy h-[28px] text-[12px] px-3">Devis</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Hero Section -->
-    <section class="pt-24 pb-20 md:pt-32 md:pb-32">
-        <div class="max-w-[1200px] mx-auto px-8 flex flex-col items-center text-center">
-            <p class="text-heading-sm font-semibold mb-2">Intervention à domicile.</p>
-            <h1 class="text-display text-ink mb-6">Ultra-rapide. Ultra-pro.</h1>
-            <p class="text-subheading text-graphite mb-10 max-w-[600px]">
-                Votre PC réparé sans quitter votre canapé. Déplacement à vélo 100% Zéro Carbone sur Tours et périphérie.
-            </p>
-            <div class="flex space-x-6">
-                <a href="tel:0600000000" class="btn-buy px-8 py-3 h-auto">Appeler maintenant</a>
-                <a href="#contact" class="text-cobalt hover:underline flex items-center text-body">Demander un devis <span class="ml-1">→</span></a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Main Features Band (Snow) -->
-    <section class="bg-snow py-24 md:py-32">
-        <div class="max-w-[1200px] mx-auto px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                
-                <!-- Forfait Boost SSD with Citrus Gradient -->
-                <div class="apple-card md:col-span-2 gradient-citrus text-snow p-12 flex flex-col md:flex-row items-center justify-between min-h-[500px]">
-                    <div class="max-w-[500px]">
-                        <p class="text-caption text-citrus mb-4">OPTIMISATION</p>
-                        <h2 class="text-heading-lg mb-6 leading-tight">Forfait Boost SSD.<br>Plus de vitesse, moins de bruit.</h2>
-                        <p class="text-subheading mb-10 opacity-80">Rendez votre vieux PC jusqu'à 10x plus réactif avec notre forfait tout compris : SSD 500 Go + Installation + Transfert.</p>
-                        <div class="text-display font-bold mb-8">119€</div>
-                        <a href="#contact" class="btn-dark px-10 py-4 h-auto text-[17px]">Acheter</a>
-                    </div>
-                    <div class="hidden md:flex flex-1 justify-center">
-                        <svg width="240" height="240" viewBox="0 0 24 24" fill="currentColor" class="text-white/20"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg>
-                    </div>
-                </div>
-
-                <!-- Taux Horaire Card -->
-                <div class="apple-card-fog border-none flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-heading mb-4 tracking-tighter">Main d'œuvre.</h3>
-                        <p class="text-body text-graphite">Un diagnostic clair. Une intervention pédagogique. Aucun frais caché.</p>
-                    </div>
-                    <div class="mt-12">
-                        <div class="text-[56px] font-bold">60€<span class="text-heading-sm font-normal text-graphite ml-2">TTC / h</span></div>
-                        <p class="text-caption text-cobalt mt-4">Déplacement vélo offert sur Tours</p>
-                    </div>
-                </div>
-
-                <!-- Reconditionné with Indigo Gradient -->
-                <div class="apple-card gradient-indigo text-snow flex flex-col justify-between overflow-hidden relative">
-                    <div>
-                        <p class="text-caption text-snow/60 mb-4">DURABILITÉ</p>
-                        <h3 class="text-heading mb-4 text-snow">PC Reconditionnés.</h3>
-                        <p class="text-body text-snow/80">Des machines pro, révisées et prêtes pour vos études ou votre travail.</p>
-                    </div>
-                    <div class="mt-12 relative z-10">
-                        <div class="text-[56px] font-bold">150€ - 200€</div>
-                        <a href="services.html" class="text-snow underline text-body-sm mt-4 inline-block">Voir les arrivages</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Approach Section (Fog) -->
-    <section class="py-24 md:py-32">
-        <div class="max-w-[1200px] mx-auto px-8">
-            <h2 class="text-heading-lg mb-20 text-center">Une approche centrée sur vous.</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                <div class="apple-card">
-                    <p class="text-[40px] mb-8">👴</p>
-                    <h4 class="text-heading-sm mb-4">Seniors & Débutants</h4>
-                    <p class="text-body text-graphite">Pédagogie avant tout. J'explique chaque clic pour vous rendre autonome et vous protéger du phishing.</p>
-                </div>
-                <div class="apple-card">
-                    <p class="text-[40px] mb-8">💼</p>
-                    <h4 class="text-heading-sm mb-4">Télétravailleurs</h4>
-                    <p class="text-body text-graphite">Urgence priorité. Je sais que votre temps est précieux, j'interviens dans les 2 heures pour sauver votre projet.</p>
-                </div>
-                <div class="apple-card">
-                    <p class="text-[40px] mb-8">🎓</p>
-                    <h4 class="text-heading-sm mb-4">Étudiants</h4>
-                    <p class="text-body text-graphite">Budget maîtrisé. Des forfaits fixes pour éviter toute mauvaise surprise sur votre facture.</p>
+    <main>
+        <!-- Hero Section -->
+        <section id="accueil" class="hero">
+            <div class="container">
+                <h1>Votre PC rame ?<br>Je suis chez vous en 2h.</h1>
+                <p>Réparation informatique éco-responsable à Tours. Je me déplace pour un dépannage rapide et durable.</p>
+                <div class="hero-btns">
+                    <a href="#contact" class="btn btn-primary">Demander une intervention</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Zone / Contact Band (Snow) -->
-    <section id="contact" class="bg-snow py-24 md:py-32">
-        <div class="max-w-[1200px] mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
-            <div>
-                <h2 class="text-display text-ink mb-12">Contact.</h2>
-                <div class="space-y-12">
-                    <div>
-                        <p class="text-caption text-graphite uppercase mb-2">TELEPHONE</p>
-                        <p class="text-heading">06 00 00 00 00</p>
+        <!-- Services Section -->
+        <section id="services" class="reveal">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Nos Expertises</h2>
+                    <p>Des forfaits pensés pour la longévité de votre matériel.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <span class="service-icon">🚀</span>
+                        <h3>Boost SSD</h3>
+                        <p>Multipliez par 10 la vitesse de votre ancien PC en remplaçant son disque dur.</p>
+                        <span class="service-price">À partir de 119€</span>
                     </div>
-                    <div>
-                        <p class="text-caption text-graphite uppercase mb-2">ZONE D'INTERVENTION</p>
-                        <p class="text-subheading">Tours, Joué-lès-Tours, St-Cyr, Chambray, St-Pierre, Deux-Lions.</p>
-                        <p class="text-body text-cobalt mt-4 italic font-medium">100% à vélo & réseau Fil Bleu.</p>
+                    <div class="service-card">
+                        <span class="service-icon">🛡️</span>
+                        <h3>Désinfection</h3>
+                        <p>Nettoyage complet des menaces et optimisation de votre sécurité numérique.</p>
+                        <span class="service-price">À partir de 69€</span>
+                    </div>
+                    <div class="service-card">
+                        <span class="service-icon">🖨️</span>
+                        <h3>Assistance Senior</h3>
+                        <p>Configuration imprimante, emails et conseils contre les cyber-arnaques.</p>
+                        <span class="service-price">55€ / heure</span>
+                    </div>
+                    <div class="service-card">
+                        <span class="service-icon">🔧</span>
+                        <h3>Diagnostic</h3>
+                        <p>Bilan matériel complet. Le coût est déduit si vous effectuez la réparation.</p>
+                        <span class="service-price">30€ (offert*)</span>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="apple-card-fog p-12">
-                <form id="contact-form" class="space-y-10">
-                    <div class="border-b border-silver-mist pb-4">
-                        <label class="text-caption text-graphite uppercase mb-2 block">Nom</label>
-                        <input type="text" placeholder="Entrez votre nom" class="w-full bg-transparent outline-none text-subheading placeholder:text-silver-mist">
-                    </div>
-                    <div class="border-b border-silver-mist pb-4">
-                        <label class="text-caption text-graphite uppercase mb-2 block">Email</label>
-                        <input type="email" placeholder="votre@email.com" class="w-full bg-transparent outline-none text-subheading placeholder:text-silver-mist">
-                    </div>
-                    <div class="border-b border-silver-mist pb-4">
-                        <label class="text-caption text-graphite uppercase mb-2 block">Problème informatique</label>
-                        <textarea rows="3" placeholder="Décrivez votre panne..." class="w-full bg-transparent outline-none text-subheading placeholder:text-silver-mist"></textarea>
-                    </div>
-                    <button type="submit" class="btn-buy w-full py-5 text-xl">Envoyer ma demande</button>
-                </form>
+        <!-- Tarifs Section -->
+        <section id="tarifs" class="tarifs reveal">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Tarifs Directs</h2>
+                    <p>Une tarification juste, sans frais de déplacement cachés.</p>
+                </div>
+                <div class="tarifs-table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Prestation</th>
+                                <th>Investissement</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Main d'œuvre (Taux horaire)</td>
+                                <td>60€ / h</td>
+                            </tr>
+                            <tr>
+                                <td>Installation Système (Windows/Linux)</td>
+                                <td>80€</td>
+                            </tr>
+                            <tr>
+                                <td>Nettoyage physique interne (Dépoussiérage)</td>
+                                <td>50€</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="font-size: 12px; color: var(--color-aged-stone); margin-top: 12px;">* Réduction de 15% appliquée sur l'ensemble des prestations pour les étudiants (présentation d'une carte d'étudiant en cours de validité requise).</p>
+                <div class="tarifs-info">
+                    <div class="reassurance-badge">● Devis Gratuit</div>
+                    <div class="reassurance-badge">● Paiement CB/Espèces</div>
+                    <div class="reassurance-badge">● RC Pro HISCOX</div>
+                    <div class="reassurance-badge" style="color: var(--color-rust-accent);">● -15% Étudiants (sur justificatif)</div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer class="py-20 border-t border-silver-mist text-graphite">
-        <div class="max-w-[1200px] mx-auto px-8 flex flex-col md:flex-row justify-between items-center opacity-60">
-            <p class="text-caption">Copyright © 2026 Tours Informatique. Tous droits réservés.</p>
-            <div class="flex space-x-12 mt-8 md:mt-0">
-                <a href="#" class="text-caption hover:underline">Mentions Légales</a>
-                <a href="#" class="text-caption hover:underline">Confidentialité</a>
-                <a href="#" class="text-caption hover:underline">SIRET 123 456 789</a>
+        <!-- Pourquoi moi Section -->
+        <section id="quisuisje" class="reveal">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Le Manifeste</h2>
+                    <p>Pourquoi choisir un technicien à vélo ?</p>
+                </div>
+                <div class="pourquoi-grid">
+                    <div class="argument">
+                        <h3>⚡ Agilité Urbaine</h3>
+                        <p>Pas de bouchons, pas de stationnement. J'arrive à l'heure, même aux heures de pointe à Tours.</p>
+                    </div>
+                    <div class="argument">
+                        <h3>🌿 Impact Positif</h3>
+                        <p>Réparer plutôt que jeter, et se déplacer sans polluer. Un service aligné avec les valeurs écologiques.</p>
+                    </div>
+                    <div class="argument">
+                        <h3>📖 Transmission</h3>
+                        <p>Je vous explique chaque étape. L'informatique ne doit plus être une boîte noire pour vous.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Zone d'intervention -->
+        <section id="zone" class="reveal">
+            <div class="container">
+                <div class="zone-content">
+                    <div class="zone-text">
+                        <h2>Zone d'action</h2>
+                        <p>J'interviens dans un rayon de 5km autour de Tours Centre, sans aucun surcoût kilométrique :</p>
+                        <p style="margin-top: 24px; color: var(--color-cork-dust);">
+                            Tours, Joué-lès-Tours, Chambray, Saint-Pierre-des-Corps, Saint-Cyr, La Riche.
+                        </p>
+                    </div>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d43234.90487431713!2d0.6493922650085465!3d47.39009804860714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47fcd10427c3d10f%3A0x40d8327170a4ea0!2sTours!5e0!3m2!1sfr!2sfr!4v1715694000000!5m2!1sfr!2sfr" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Avis Clients -->
+        <section id="avis" class="reveal">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Retours d'expérience</h2>
+                    <p>Ce que pensent vos voisins de mes interventions.</p>
+                </div>
+                <div class="avis-grid">
+                    <div class="avis-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"Efficacité redoutable. Mon PC de 2015 tourne mieux qu'un neuf grâce au passage au SSD."</p>
+                        <div class="avis-author">Marc D. — Tours</div>
+                    </div>
+                    <div class="avis-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"Technicien très calme et patient pour expliquer le fonctionnement de ma nouvelle imprimante."</p>
+                        <div class="avis-author">Sophie L. — Saint-Cyr</div>
+                    </div>
+                    <div class="avis-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"L'idée du vélo est géniale. Intervention rapide et prix très honnête. Je recommande !"</p>
+                        <div class="avis-author">Jean-Pierre R. — Joué</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact reveal">
+            <div class="container">
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h2>Parlons de votre projet</h2>
+                        <p style="margin-bottom: 45px;">Besoin d'un devis ou d'une intervention urgente ?</p>
+                        
+                        <div class="info-item">
+                            <strong>Direct</strong>
+                            <p>06 00 00 00 00</p>
+                        </div>
+                        <div class="info-item">
+                            <strong>Courriel</strong>
+                            <p>contact@toursdepannpc.fr</p>
+                        </div>
+                    </div>
+                    
+                    <form action="https://formspree.io/f/mojrolwe" method="POST">
+                        <div class="form-group">
+                            <label for="name">Nom complet</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="problem">Type d'assistance</label>
+                            <select id="problem" name="problem">
+                                <option value="lenteur">Lenteur PC</option>
+                                <option value="virus">Virus / Sécurité</option>
+                                <option value="imprimante">Imprimante / Wifi</option>
+                                <option value="autre">Autre demande</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Envoyer la demande</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>ToursDépannPC</h4>
+                    <p style="font-size: 13px;">L'informatique durable à domicile.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Ressources</h4>
+                    <ul>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#tarifs">Tarifs</a></li>
+                        <li><a href="#quisuisje">Philosophie</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Informations</h4>
+                    <ul>
+                        <li><a href="#">Mentions légales</a></li>
+                        <li><a href="#">CGV</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 ToursDépannPC</span>
+                <span>SIRET : 123 456 789 00012</span>
             </div>
         </div>
     </footer>
 
+    <div id="backToTop">↑</div>
+
     <script>
-        // Form feedback
-        document.getElementById('contact-form').onsubmit = (e) => {
-            e.preventDefault();
-            alert('Votre message a été envoyé. Je vous recontacte sous 2 heures.');
-        };
+        // Sticky Header & Back to Top
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            const backToTop = document.getElementById('backToTop');
+            
+            if (window.scrollY > 50) {
+                header.style.padding = '12px 0';
+            } else {
+                header.style.padding = '24px 0';
+            }
+
+            if (window.scrollY > 500) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mainNav = document.getElementById('main-nav');
+        
+        mobileToggle.addEventListener('click', function() {
+            mainNav.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => mainNav.classList.remove('active'));
+        });
+
+        // Reveal on scroll (Intersection Observer)
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => revealObserver.observe(el));
     </script>
 </body>
 </html>
