@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services & Expertise | Tours Informatique</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ink: '#1d1d1f', graphite: '#707070', slate: '#474747',
+                        fog: '#f5f5f7', snow: '#ffffff', obsidian: '#000000',
+                        'silver-mist': '#e8e8ed', azure: '#0071e3', cobalt: '#0066cc', citrus: '#dddc8c',
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], },
+                    borderRadius: { 'apple-card': '28px', 'apple-pill': '999px', }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #f5f5f7; color: #1d1d1f; -webkit-font-smoothing: antialiased; }
+        .text-display { font-size: 80px; font-weight: 700; line-height: 1.04; letter-spacing: -2.11px; }
+        @media (max-width: 768px) { .text-display { font-size: 40px; letter-spacing: -1.05px; } }
+        .text-heading-lg { font-size: 56px; font-weight: 700; line-height: 1.07; letter-spacing: -0.9px; }
+        .text-heading { font-size: 40px; font-weight: 700; line-height: 1.17; letter-spacing: -0.6px; }
+        .text-subheading { font-size: 20px; font-weight: 300; line-height: 1.4; letter-spacing: -0.2px; }
+        .text-body { font-size: 17px; font-weight: 400; line-height: 1.47; letter-spacing: -0.1px; }
+        .glass-nav { background: rgba(245, 245, 247, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+        .btn-buy { background-color: #0071e3; color: #ffffff; border-radius: 999px; padding: 8px 16px; font-size: 17px; font-weight: 400; display: inline-flex; align-items: center; justify-content: center; transition: opacity 0.2s; }
+        .btn-buy:hover { opacity: 0.8; }
+        .apple-card { background-color: #ffffff; border-radius: 28px; padding: 48px; }
+        .sticky-subnav { background-color: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); border-bottom: 1px solid #e8e8ed; height: 52px; position: sticky; top: 44px; z-index: 40; }
+        .subnav-link { font-size: 14px; font-weight: 400; color: #1d1d1f; opacity: 0.8; transition: opacity 0.2s; }
+        .subnav-link.active { opacity: 1; border-bottom: 2px solid #1d1d1f; padding-bottom: 14px; }
+    </style>
+</head>
+<body class="font-sans">
+
+    <!-- Global Navigation -->
+    <header class="fixed w-full z-50 glass-nav h-[44px]">
+        <nav class="max-w-[1200px] mx-auto px-8 h-full flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" class="text-ink"><path d="M20 13h-7v7h-2v-7H4v-2h7V4h2v7h7v2z"/></svg>
+                    <span class="font-semibold text-[14px] tracking-tight">Tours Informatique</span>
+                </a>
+            </div>
+            <div class="hidden md:flex space-x-8 text-[12px] font-normal text-ink">
+                <a href="services.html" class="font-semibold">Services</a>
+                <a href="tarifs.html" class="hover:opacity-70 transition">Tarifs</a>
+                <a href="index.html#approche" class="hover:opacity-70 transition">Approche</a>
+                <a href="index.html#contact" class="btn-buy text-[12px] py-1 px-4 h-auto">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sticky Sub-Nav -->
+    <div class="sticky-subnav">
+        <div class="max-w-[1200px] mx-auto px-8 h-full flex justify-between items-center">
+            <div class="text-[17px] font-bold">Services</div>
+            <div class="flex items-center space-x-6">
+                <a href="index.html" class="subnav-link">Aperçu</a>
+                <a href="services.html" class="subnav-link active">Prestations</a>
+                <a href="tarifs.html" class="subnav-link">Spécifications</a>
+                <a href="index.html#contact" class="btn-buy h-[28px] text-[12px] px-3">Devis</a>
+            </div>
+        </div>
+    </div>
+
+    <main class="py-24">
+        <div class="max-w-[1200px] mx-auto px-8">
+            <div class="text-center mb-32">
+                <h1 class="text-display mb-8">Plus qu'une réparation.<br><span class="text-graphite">Un nouveau départ.</span></h1>
+            </div>
+
+            <!-- Service Details -->
+            <div class="space-y-12">
+                <div class="apple-card flex flex-col md:flex-row gap-20 items-center">
+                    <div class="flex-1">
+                        <h2 class="text-heading mb-6">Expertise Logicielle.</h2>
+                        <ul class="text-body space-y-4 text-graphite">
+                            <li>• Suppression de virus et logiciels espions</li>
+                            <li>• Nettoyage système et optimisation du registre</li>
+                            <li>• Configuration de sauvegardes automatiques</li>
+                            <li>• Sécurisation de vos comptes personnels</li>
+                        </ul>
+                    </div>
+                    <div class="flex-1 bg-fog rounded-[28px] p-12 flex items-center justify-center min-h-[400px]">
+                        <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-azure"><path d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+                    </div>
+                </div>
+
+                <div class="apple-card flex flex-col md:flex-row-reverse gap-20 items-center">
+                    <div class="flex-1">
+                        <h2 class="text-heading mb-6">Récupération Matérielle.</h2>
+                        <ul class="text-body space-y-4 text-graphite">
+                            <li>• Remplacement d'écran et de batterie</li>
+                            <li>• Réparation de charnières et de claviers</li>
+                            <li>• Upgrade matériel (RAM & SSD)</li>
+                            <li>• Nettoyage physique interne (poussière)</li>
+                        </ul>
+                    </div>
+                    <div class="flex-1 bg-obsidian text-snow rounded-[28px] p-12 flex items-center justify-center min-h-[400px]">
+                        <div class="text-center">
+                            <svg width="100" height="100" viewBox="0 0 24 24" fill="currentColor" class="mx-auto mb-6 text-citrus"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                            <p class="text-heading-sm font-bold">Puissance brute</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-20 border-t border-silver-mist opacity-60">
+        <div class="max-w-[1200px] mx-auto px-8 text-center">
+            <p class="text-[12px] font-semibold">Tours Informatique - Réparé avec soin.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

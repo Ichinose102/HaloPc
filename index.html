@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dépannage Informatique Tours | Tours Informatique</title>
+    <meta name="description" content="Réparation informatique à domicile sur Tours. Intervention rapide à vélo, devis clairs et pédagogie. Boostez votre PC avec notre forfait SSD !">
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ink: '#1d1d1f',
+                        graphite: '#707070',
+                        slate: '#474747',
+                        ash: '#333333',
+                        fog: '#f5f5f7',
+                        snow: '#ffffff',
+                        obsidian: '#000000',
+                        'silver-mist': '#e8e8ed',
+                        azure: '#0071e3',
+                        cobalt: '#0066cc',
+                        citrus: '#dddc8c',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                    },
+                    spacing: {
+                        '4': '4px', '8': '8px', '12': '12px', '16': '16px', '20': '20px',
+                        '24': '24px', '28': '28px', '32': '32px', '40': '40px', '44': '44px',
+                        '48': '48px', '52': '52px', '76': '76px', '80': '80px', '120': '120px', '144': '144px',
+                    },
+                    borderRadius: {
+                        'apple-card': '28px',
+                        'apple-pill': '999px',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --color-ink: #1d1d1f;
+            --color-graphite: #707070;
+            --color-slate: #474747;
+            --color-ash: #333333;
+            --color-fog: #f5f5f7;
+            --color-snow: #ffffff;
+            --color-obsidian: #000000;
+            --color-silver-mist: #e8e8ed;
+            --color-azure: #0071e3;
+            --color-cobalt: #0066cc;
+            --color-citrus-gradient: linear-gradient(184deg, rgb(29, 29, 31) 0%, rgb(223, 231, 79) 33%, rgb(94, 156, 42) 66%, rgb(10, 134, 26) 95%);
+            --color-indigo-gradient: linear-gradient(184deg, rgb(29, 29, 31) 20%, rgb(168, 211, 251) 43%, rgb(0, 18, 249) 76%, rgb(37, 53, 224) 95%);
+        }
+
+        body { background-color: var(--color-fog); color: var(--color-ink); -webkit-font-smoothing: antialiased; }
+        
+        /* SF Pro Display Substitutes with tracking from DESIGN.md */
+        .text-display { font-size: 96px; font-weight: 700; line-height: 1.04; letter-spacing: -2.11px; }
+        @media (max-width: 768px) { .text-display { font-size: 48px; letter-spacing: -1.05px; } }
+
+        .text-heading-lg { font-size: 56px; font-weight: 700; line-height: 1.07; letter-spacing: -0.9px; }
+        @media (max-width: 768px) { .text-heading-lg { font-size: 32px; letter-spacing: -0.5px; } }
+
+        .text-heading { font-size: 40px; font-weight: 700; line-height: 1.17; letter-spacing: -0.6px; }
+        .text-heading-sm { font-size: 24px; font-weight: 600; line-height: 1.29; letter-spacing: -0.36px; }
+        .text-subheading { font-size: 20px; font-weight: 300; line-height: 1.4; letter-spacing: -0.2px; }
+        .text-body { font-size: 17px; font-weight: 400; line-height: 1.47; letter-spacing: -0.1px; }
+        .text-body-sm { font-size: 14px; font-weight: 400; line-height: 1.43; letter-spacing: -0.04px; }
+        .text-caption { font-size: 12px; font-weight: 600; line-height: 1.33; letter-spacing: -0.26px; }
+
+        /* Components */
+        .glass-nav { background: rgba(245, 245, 247, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+        
+        .btn-buy {
+            background-color: var(--color-azure);
+            color: var(--color-snow);
+            border-radius: 999px;
+            padding: 8px 16px;
+            font-size: 17px;
+            font-weight: 400;
+            transition: opacity 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-buy:hover { opacity: 0.8; }
+
+        .btn-dark {
+            background-color: var(--color-obsidian);
+            color: var(--color-snow);
+            border-radius: 999px;
+            padding: 8px 16px;
+            font-size: 17px;
+            font-weight: 400;
+            transition: opacity 0.2s ease;
+        }
+
+        .apple-card { background-color: var(--color-snow); border-radius: 28px; padding: 28px; box-shadow: none; border: none; }
+        .apple-card-fog { background-color: var(--color-fog); border-radius: 28px; padding: 28px; box-shadow: none; }
+
+        .sticky-subnav {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--color-silver-mist);
+            height: 52px;
+            position: sticky;
+            top: 44px;
+            z-index: 40;
+        }
+
+        .subnav-link { font-size: 14px; font-weight: 400; color: var(--color-ink); opacity: 0.8; transition: opacity 0.2s; }
+        .subnav-link:hover { opacity: 1; }
+        .subnav-link.active { opacity: 1; border-bottom: 2px solid var(--color-ink); padding-bottom: 14px; }
+
+        .gradient-citrus { background: var(--color-citrus-gradient); }
+        .gradient-indigo { background: var(--color-indigo-gradient); }
+    </style>
+</head>
+<body class="font-sans overflow-x-hidden">
+
+    <!-- Global Navigation -->
+    <header class="fixed w-full z-50 glass-nav h-[44px]">
+        <nav class="max-w-[1200px] mx-auto px-8 h-full flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" class="text-ink"><path d="M20 13h-7v7h-2v-7H4v-2h7V4h2v7h7v2z"/></svg>
+                <span class="font-semibold text-[14px] tracking-tight">Tours Informatique</span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-[12px] font-normal text-ink">
+                <a href="services.html" class="hover:opacity-70 transition">Services</a>
+                <a href="tarifs.html" class="hover:opacity-70 transition">Tarifs</a>
+                <a href="#approche" class="hover:opacity-70 transition">Approche</a>
+                <a href="#contact" class="btn-buy text-[12px] py-1 px-4 h-auto min-h-0">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sticky Product Sub-Nav -->
+    <div class="sticky-subnav">
+        <div class="max-w-[1200px] mx-auto px-8 h-full flex justify-between items-center">
+            <div class="text-[17px] font-bold">Dépannage Tours</div>
+            <div class="flex items-center space-x-6">
+                <a href="index.html" class="subnav-link active">Aperçu</a>
+                <a href="services.html" class="subnav-link">Prestations</a>
+                <a href="tarifs.html" class="subnav-link">Spécifications</a>
+                <a href="#contact" class="btn-buy h-[28px] text-[12px] px-3">Devis</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-20 md:pt-32 md:pb-32">
+        <div class="max-w-[1200px] mx-auto px-8 flex flex-col items-center text-center">
+            <p class="text-heading-sm font-semibold mb-2">Intervention à domicile.</p>
+            <h1 class="text-display text-ink mb-6">Ultra-rapide. Ultra-pro.</h1>
+            <p class="text-subheading text-graphite mb-10 max-w-[600px]">
+                Votre PC réparé sans quitter votre canapé. Déplacement à vélo 100% Zéro Carbone sur Tours et périphérie.
+            </p>
+            <div class="flex space-x-6">
+                <a href="tel:0600000000" class="btn-buy px-8 py-3 h-auto">Appeler maintenant</a>
+                <a href="#contact" class="text-cobalt hover:underline flex items-center text-body">Demander un devis <span class="ml-1">→</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Features Band (Snow) -->
+    <section class="bg-snow py-24 md:py-32">
+        <div class="max-w-[1200px] mx-auto px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                
+                <!-- Forfait Boost SSD with Citrus Gradient -->
+                <div class="apple-card md:col-span-2 gradient-citrus text-snow p-12 flex flex-col md:flex-row items-center justify-between min-h-[500px]">
+                    <div class="max-w-[500px]">
+                        <p class="text-caption text-citrus mb-4">OPTIMISATION</p>
+                        <h2 class="text-heading-lg mb-6 leading-tight">Forfait Boost SSD.<br>Plus de vitesse, moins de bruit.</h2>
+                        <p class="text-subheading mb-10 opacity-80">Rendez votre vieux PC jusqu'à 10x plus réactif avec notre forfait tout compris : SSD 500 Go + Installation + Transfert.</p>
+                        <div class="text-display font-bold mb-8">119€</div>
+                        <a href="#contact" class="btn-dark px-10 py-4 h-auto text-[17px]">Acheter</a>
+                    </div>
+                    <div class="hidden md:flex flex-1 justify-center">
+                        <svg width="240" height="240" viewBox="0 0 24 24" fill="currentColor" class="text-white/20"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg>
+                    </div>
+                </div>
+
+                <!-- Taux Horaire Card -->
+                <div class="apple-card-fog border-none flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-heading mb-4 tracking-tighter">Main d'œuvre.</h3>
+                        <p class="text-body text-graphite">Un diagnostic clair. Une intervention pédagogique. Aucun frais caché.</p>
+                    </div>
+                    <div class="mt-12">
+                        <div class="text-[56px] font-bold">60€<span class="text-heading-sm font-normal text-graphite ml-2">TTC / h</span></div>
+                        <p class="text-caption text-cobalt mt-4">Déplacement vélo offert sur Tours</p>
+                    </div>
+                </div>
+
+                <!-- Reconditionné with Indigo Gradient -->
+                <div class="apple-card gradient-indigo text-snow flex flex-col justify-between overflow-hidden relative">
+                    <div>
+                        <p class="text-caption text-snow/60 mb-4">DURABILITÉ</p>
+                        <h3 class="text-heading mb-4 text-snow">PC Reconditionnés.</h3>
+                        <p class="text-body text-snow/80">Des machines pro, révisées et prêtes pour vos études ou votre travail.</p>
+                    </div>
+                    <div class="mt-12 relative z-10">
+                        <div class="text-[56px] font-bold">150€ - 200€</div>
+                        <a href="services.html" class="text-snow underline text-body-sm mt-4 inline-block">Voir les arrivages</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Approach Section (Fog) -->
+    <section class="py-24 md:py-32">
+        <div class="max-w-[1200px] mx-auto px-8">
+            <h2 class="text-heading-lg mb-20 text-center">Une approche centrée sur vous.</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="apple-card">
+                    <p class="text-[40px] mb-8">👴</p>
+                    <h4 class="text-heading-sm mb-4">Seniors & Débutants</h4>
+                    <p class="text-body text-graphite">Pédagogie avant tout. J'explique chaque clic pour vous rendre autonome et vous protéger du phishing.</p>
+                </div>
+                <div class="apple-card">
+                    <p class="text-[40px] mb-8">💼</p>
+                    <h4 class="text-heading-sm mb-4">Télétravailleurs</h4>
+                    <p class="text-body text-graphite">Urgence priorité. Je sais que votre temps est précieux, j'interviens dans les 2 heures pour sauver votre projet.</p>
+                </div>
+                <div class="apple-card">
+                    <p class="text-[40px] mb-8">🎓</p>
+                    <h4 class="text-heading-sm mb-4">Étudiants</h4>
+                    <p class="text-body text-graphite">Budget maîtrisé. Des forfaits fixes pour éviter toute mauvaise surprise sur votre facture.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Zone / Contact Band (Snow) -->
+    <section id="contact" class="bg-snow py-24 md:py-32">
+        <div class="max-w-[1200px] mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
+            <div>
+                <h2 class="text-display text-ink mb-12">Contact.</h2>
+                <div class="space-y-12">
+                    <div>
+                        <p class="text-caption text-graphite uppercase mb-2">TELEPHONE</p>
+                        <p class="text-heading">06 00 00 00 00</p>
+                    </div>
+                    <div>
+                        <p class="text-caption text-graphite uppercase mb-2">ZONE D'INTERVENTION</p>
+                        <p class="text-subheading">Tours, Joué-lès-Tours, St-Cyr, Chambray, St-Pierre, Deux-Lions.</p>
+                        <p class="text-body text-cobalt mt-4 italic font-medium">100% à vélo & réseau Fil Bleu.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="apple-card-fog p-12">
+                <form id="contact-form" class="space-y-10">
+                    <div class="border-b border-silver-mist pb-4">
+                        <label class="text-caption text-graphite uppercase mb-2 block">Nom</label>
+                        <input type="text" placeholder="Entrez votre nom" class="w-full bg-transparent outline-none text-subheading placeholder:text-silver-mist">
+                    </div>
+                    <div class="border-b border-silver-mist pb-4">
+                        <label class="text-caption text-graphite uppercase mb-2 block">Email</label>
+                        <input type="email" placeholder="votre@email.com" class="w-full bg-transparent outline-none text-subheading placeholder:text-silver-mist">
+                    </div>
+                    <div class="border-b border-silver-mist pb-4">
+                        <label class="text-caption text-graphite uppercase mb-2 block">Problème informatique</label>
+                        <textarea rows="3" placeholder="Décrivez votre panne..." class="w-full bg-transparent outline-none text-subheading placeholder:text-silver-mist"></textarea>
+                    </div>
+                    <button type="submit" class="btn-buy w-full py-5 text-xl">Envoyer ma demande</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 border-t border-silver-mist text-graphite">
+        <div class="max-w-[1200px] mx-auto px-8 flex flex-col md:flex-row justify-between items-center opacity-60">
+            <p class="text-caption">Copyright © 2026 Tours Informatique. Tous droits réservés.</p>
+            <div class="flex space-x-12 mt-8 md:mt-0">
+                <a href="#" class="text-caption hover:underline">Mentions Légales</a>
+                <a href="#" class="text-caption hover:underline">Confidentialité</a>
+                <a href="#" class="text-caption hover:underline">SIRET 123 456 789</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form feedback
+        document.getElementById('contact-form').onsubmit = (e) => {
+            e.preventDefault();
+            alert('Votre message a été envoyé. Je vous recontacte sous 2 heures.');
+        };
+    </script>
+</body>
+</html>
